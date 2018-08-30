@@ -23,8 +23,8 @@ An [Arduino](https://arduino.cc/) library for sending and receiving data using [
 | SCK | SCK |
 | MISO | MISO |
 | MOSI | MOSI |
-| NSS | 10 |
-| NRESET | 9 |
+| NSS | 17 |
+| NRESET | 14 |
 | DIO0 | 2 |
 
 
