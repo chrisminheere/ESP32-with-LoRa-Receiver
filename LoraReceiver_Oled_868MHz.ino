@@ -1,6 +1,6 @@
 //*****************************************************************************************************************************//
 //Made By: Chris Minheere
-//30-08-2018
+//01-09-2018
 //Lora Receiver 868Mhz, On ESP32.
 //Hardware: ESP32, SSD1306 OLED, SX1276 868MHz
 
@@ -10,7 +10,7 @@
 //*****************************************************************************************************************************//
 
 #include <SPI.h>
-#include <LoRa1.h>
+#include <LoRa.h>
 #include "SSD1306.h"
 int yPos = 0;
 
@@ -48,7 +48,7 @@ void setup() {
   LoRa.setSpreadingFactor(12);            //Change the spreading factor of the radio.
   LoRa.setSignalBandwidth(125E3);         //Change the signal bandwidth of the radio.
   LoRa.setCodingRate4(4 / 5);             //Change the coding rate of the radio.
-  LoRa.setSyncWord(0x13);                 //Change the sync word of the radio.
+  LoRa.setSyncWord(0x11);                 //Change the sync word of the radio.
   //LoRa.disableCrc();                    //Enable or disable CRC usage, by default a CRC is not used.
   LoRa.setPreambleLength(8);              //Change the preamble length of the radio.
 }
@@ -78,6 +78,7 @@ void loop() {
       //Show text on display
       display.clear();
       display.drawString(2, 2, "Lora Temperature");
+      //display.drawString(45, 30, (counter());
       display.drawString(45, 30, "°C");
       display.drawString(2, 30, receivedText);
       display.drawString(45, 45, (String)LoRa.packetRssi());
